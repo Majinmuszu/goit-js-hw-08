@@ -1,5 +1,5 @@
 import throttle from 'lodash/throttle';
-import Player from '@vimeo/player';
+import _default from '../../node_modules/@vimeo/player';
 
 const qs = (selector) => document.querySelector(selector);
 const qsa = (selector) => document.querySelectorAll(selector);
