@@ -4,34 +4,33 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import { galleryItems } from './gallery-items';
 // Change code below this line
 
-const qs = (selector) => document.querySelector(selector);
-const qsa = (selector) => document.querySelectorAll(selector);
-const log = (something) => console.log(something);
-const ce = (elem) => document.createElement(elem);
+const qs = selector => document.querySelector(selector);
+const qsa = selector => document.querySelectorAll(selector);
+const log = something => console.log(something);
+const ce = elem => document.createElement(elem);
 
-const gallery = qs(".gallery");
+const gallery = qs('.gallery');
 
-const createGalleryItems = (galleryItems) => {
+const createGalleryItems = galleryItems => {
   galleryItems.forEach(item => {
-
-    const galleryLink = ce("a");
-    galleryLink.classList.add("gallery__link");
+    const galleryLink = ce('a');
+    galleryLink.classList.add('gallery__link');
     galleryLink.href = item.original;
     gallery.append(galleryLink);
 
-    const galleryImg = ce("img");
-    galleryImg.classList.add("gallery__image");
+    const galleryImg = ce('img');
+    galleryImg.classList.add('gallery__image');
     galleryImg.src = item.preview;
     galleryImg.alt = item.description;
     galleryLink.append(galleryImg);
-  })
-  let lightbox = new SimpleLightbox(".gallery a", {
-    captionPosition: "outside",
-    captionsData: "alt",
-    captionDelay: "250",
   });
-}
+  let lightbox = new SimpleLightbox('.gallery a', {
+    captionPosition: 'outside',
+    captionsData: 'alt',
+    captionDelay: '250',
+  });
+};
 
 createGalleryItems(galleryItems);
 
-gallery.addEventListener("click", e => e.preventDefault());
+gallery.addEventListener('click', e => e.preventDefault());
